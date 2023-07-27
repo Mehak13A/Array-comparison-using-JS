@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Comparison</title>
+  <script>
+    function compareArrays() {
+      event.preventDefault();
+
+      // Get the form inputs
+      let array1 = document.getElementById('array1').value.split(',');
+      let array2 = document.getElementById('array2').value.split(',');
+
+      // Call the getUniqueElements function
+      let uniqueElements = getUniqueElements(array1, array2);
+
+      // Display the result
+      document.getElementById('result').innerHTML = 'Unique Elements: ' + uniqueElements;
+    }
+
+    function getUniqueElements(array1, array2) {
+      return array1.filter(element => !array2.includes(element));
+    }
+  </script>
+</head>
+<body>
+  <h1>Q.2. Array Comparison</h1>
+  <form onsubmit="compareArrays()">
+    <label for="array1">Enter the elements of the first array, separated by commas:</label><br>
+    <input type="text" id="array1" name="array1"><br>
+
+    <label for="array2">Enter the elements of the second array, separated by commas:</label><br>
+    <input type="text" id="array2" name="array2"><br>
+
+    <button type="submit">Compare Arrays</button>
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>
